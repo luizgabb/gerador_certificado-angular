@@ -31,6 +31,7 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 12px;
+  position: relative;
 }
 
 .conteudo-certificado {
@@ -38,11 +39,11 @@
   width: 720px;
   height: 470px;
   border-radius: 8px;
-  position: relative;
 }
 
-.icone-medlha {
-  position: absolute
-
+.icone-medalha {
+  position: absolute;
+  top: 12px;
+  left: 12px;
 
 }
