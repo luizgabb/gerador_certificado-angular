@@ -10,9 +10,10 @@ import { BaseUi } from "./_components/base-ui/base-ui";
 
 
 
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, CommonModule, BaseUi],
+  imports: [Navbar, CommonModule, BaseUi, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
