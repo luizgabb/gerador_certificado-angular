@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SecondaryButton } from '../../_components/secondary-button/secondary-button';
 import { PrimaryButton } from '../../_components/primary-button/primary-button';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Certificado } from '../certificado/certificado';
-
+import { Certificado } from '../../interfaces/certificado';
+import { CertificadoService } from '../../_services/certificado.service';
+import {v4 as uuidv4 } from 'uuid';
 
 
 @Component({
@@ -14,9 +15,16 @@ import { Certificado } from '../certificado/certificado';
   styleUrl: './certificado-form.css'
 })
 export class CertificadoForm {
+
+constructor(private certificadoService: CertificadoService) {
+
+}
+
+
   nome:string = ""
   atividade: string = ""
   atividades: string[] = []
+  dataEmissao: string = ""
 
   certificado: Certificado | undefined;
 
@@ -39,15 +47,31 @@ export class CertificadoForm {
   }
 
   submit() {
-    this.certificado = {
-      atividades: this.atividades,
-      nome: this.nome
-    }
-
-    if(!this.formValido()) {
-      return
-    }
-    console.log(this.certificado);
-
+  if (!this.formValido()) {
+    return;
   }
+
+  this.certificado = {
+    id: '',
+    nome: this.nome,
+    atividades: this.atividades,
+    dataEmissao: this.dataAtual()
+  };
+
+  this.certificado.id = uuidv4();
+  this.certificadoService.adicionarCertificado(this.certificado);
+}
+
+  dataAtual() {
+    const dataAtual = new Date();
+    const dia = String(dataAtual.getDate()).padStart(2, '0');
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+    const ano = dataAtual.getFullYear();
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    return dataFormatada;
+  }
+
+
+
 }
