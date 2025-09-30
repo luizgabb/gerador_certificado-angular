@@ -38,6 +38,9 @@ constructor(private certificadoService: CertificadoService) {
   }
 
   adicionarAtividade() {
+    if(this.atividade.length == 0) {
+      return;
+    }
     this.atividades.push(this.atividade)
     this.atividade = '';
   }
