@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Certificado } from '../../interfaces/certificado';
 import { CertificadoService } from '../../_services/certificado.service';
 import {v4 as uuidv4 } from 'uuid';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import {v4 as uuidv4 } from 'uuid';
 })
 export class CertificadoForm {
 
-constructor(private certificadoService: CertificadoService) {
+constructor(private certificadoService: CertificadoService, private route: Router) {
 
 }
 
@@ -63,6 +64,8 @@ constructor(private certificadoService: CertificadoService) {
 
   this.certificado.id = uuidv4();
   this.certificadoService.adicionarCertificado(this.certificado);
+  this.route.navigate(['certificados', this.certificado.id]);
+
 }
 
   dataAtual() {

@@ -18,8 +18,7 @@ export class Certificados implements OnInit {
 constructor(private certificadoService: CertificadoService) { }
 
 ngOnInit(): void {
-  this.certificados = this.certificadoService.certificados;
-  console.log(this.certificados)
+  this.certificados = this.certificadoService.certificados.reverse();
 }
 
 }
