@@ -28,29 +28,6 @@ Este é um gerador de certificados desenvolvido em Angular que permite criar e b
 - **Deploy**: Netlify
 - **Controle de Versão**: Git
 
-## 📦 Estrutura do Projeto
-
-```
-gerador_certificado-angular/
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   └── certificado/
-│   │   │       ├── certificado.component.ts
-│   │   │       ├── certificado.component.html
-│   │   │       └── certificado.component.css
-│   │   ├── services/
-│   │   │   └── certificado.service.ts
-│   │   ├── models/
-│   │   │   └── certificado.model.ts
-│   │   └── app.module.ts
-├── assets/
-│   └── images/
-├── angular.json
-├── package.json
-└── README.md
-```
-
 ## 🎯 Como Usar
 
 ### Pré-requisitos
